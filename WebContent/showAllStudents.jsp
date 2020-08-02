@@ -14,7 +14,7 @@
 			<th>Last Name</th>
 			<th>Section</th>
 			<th>City</th>
-			<th>Section</th>
+			<th colspan="2">Action</th>
 		</tr>
 		<c:forEach items="${requestScope.studentList}" var="c">
 			<tr>
@@ -23,7 +23,8 @@
 				<td>${c.lastName}</td>
 				<td>${c.section}</td>
 				<td>${c.getAddress().getCity()}</td>
-				<td>${c.getSection()}</td>
+				<td><a href="updateStudent?Id=${c.id }">update</a></td>
+				<td><a href="deleteStudent?Id=${c.id }">Delete</a></td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -101,4 +101,38 @@ public class StudentDao {
 		session.close();
 		return list;
 	}
+
+	public void deleteStudent(long id) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		Student student = (Student) session.get(Student.class, id);
+		session.delete(student);
+		session.getTransaction().commit();
+		session.close();
+	}
+
+	public List<Student> getStudentById(long id) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		String query = " from Student student where id=" + id;
+		List<Student> studentList = (List<Student>) session.createQuery(query).list();
+		session.getTransaction().commit();
+		session.close();
+		return studentList;
+	}
+
+	public void updateStudent(long ID, String firstName,String lastName,String section,String street,String city,String country) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		Student oldStudent = (Student) session.get(Student.class, ID);
+		oldStudent.setFirstName(firstName);
+		oldStudent.setLastName(lastName);
+		oldStudent.setSection(section);
+		oldStudent.getAddress().setStreet(street);
+		oldStudent.getAddress().setCity(city);
+		oldStudent.getAddress().setCountry(country);
+		session.merge(oldStudent);
+		session.getTransaction().commit();
+		session.close();
+	}
 }
