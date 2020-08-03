@@ -12,5 +12,6 @@
         <property name="show_sql">true</property>
         <mapping class="com.example.model.Student"/>
         <mapping class="com.example.model.Address"/>
+        <mapping class="com.example.model.Admin"/>
     </session-factory>
 </hibernate-configuration>

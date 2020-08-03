@@ -1,0 +1,1 @@
+<p>This is forgot password page</p>
