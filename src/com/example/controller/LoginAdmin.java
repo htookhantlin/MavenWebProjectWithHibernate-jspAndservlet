@@ -42,6 +42,8 @@ public class LoginAdmin extends HttpServlet {
 			dis.forward(req, resp);
 		} else {
 			System.out.println("login failed");
+			RequestDispatcher dis = req.getRequestDispatcher("loginFailed.jsp");
+			dis.forward(req, resp);
 		}
 
 	}

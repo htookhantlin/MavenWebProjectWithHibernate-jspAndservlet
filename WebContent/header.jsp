@@ -24,6 +24,11 @@
 <a href="searchByName.jsp">Search Student By Name</a>
 ||
 <div class="logout">
-	<a href="logout.jsp"><%= admin.getUserName() %></a>
+	<a href="logout" onclick="logout()" ><%= admin.getUserName() %></a>
 </div>
 <hr>
+<script>
+	function logout(){
+		window.alert("Are you sure to logout?");
+	}
+</script>
